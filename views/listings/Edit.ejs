@@ -1,0 +1,24 @@
+<% layout('layouts/boilerplate') -%>
+
+<body>
+    <h1>Edit the listing</h1>
+    <form action="/listings/<%= temp._id %>/?_method=PUT" method="post">
+        <label for="title">Title : </label>
+        <input name="title"  value="<%= temp.title %>">
+        <br><br>
+        <label for="desc">Description : </label>
+        <input  name="desc" value="<%= temp.desc %>">
+        <br><br>
+        <label for="price">Price : </label>
+        <input  name="price" value="<%= temp.price %>">
+        <br><br>
+        <label for="location">location</label>
+        <input  name="location" value="<%= temp.location %>">
+        <br><br>
+        <label for="country">Country</label>
+        <input  name="country" value="<%= temp.country %>">
+        <br><br>
+        <button>Edit</button>
+
+    </form>
+</body>

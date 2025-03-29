@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <H1>Add Property</H1>
+    <form action="/listings" method="post"  novalidate class="needs-validation">
+        <label for="title">Title : </label>
+        <input name="title" placeholder="Enter the title" required>
+        <br><br>
+        <label for="desc">Description : </label>
+        <textarea type="text" name="desc" placeholder="Give the Description"  required></textarea>
+        <br><br>
+        <label for="img">Image : </label>
+        <input type="text" name="img" placeholder="Give the image url/link" >
+        <br><br>
+        <label for="price">Price : </label>
+        <input type="text" name="price" placeholder="Enter the price"  required>
+        <br><br>
+        <label for="location">location</label>
+        <input type="text" name="location" placeholder="Enter the location"  required>
+        <br><br>
+        <label for="country">Country</label>
+        <input type="text" name="country" placeholder="In which country" required>
+        <br><br>
+        <button>Submit</button>
+        
+    </form>
+</body>
+<script src="/js/script.js" ></script>

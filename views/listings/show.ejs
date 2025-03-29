@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate') -%>
+<body>
+    <h1><%= temp.title %></h1>
+    <p>Description : <%= temp.desc %></p>
+    <p>Price : &#8377;<%= temp.price.toLocaleString("en-IN") %></p>
+    <p>Location : <%= temp.location %></p>
+    <p>Country : <%= temp.country %></p>
+    <a href="/listings/<%= temp._id %>/edit"><button>Edit</button></a>
+    <form action="/listings/<%= temp._id %>?_method=Delete" method="post">
+        <br>
+        <button>Delete</button>
+    </form>
+    
+    <div class="col-8 offset-3 mb-3">
+        <hr>
+        <h4>Leave a Review</h4>
+        <form action="/listings/<%= temp._id %>/review" method="post" novalidate class="needs-validation">
+            <div class="mb-3 mt-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="comment" class="form-label">Comments</label>
+                <textarea name="review[Comment]" id="comment" cols="30" rows="5" class="form-control"  ></textarea>
+                <div class="invalid-feedback">Please Enter The comment</div>
+            </div>
+            
+            <button class="btn btn-outline-dark">Submit</button>
+        </form>
+        
+        <hr>
+
+        
+
+        <p><b>All Reviews</b></p>
+        <div class="row">
+            <% for(let i of temp.reviews ) {%>
+            <div class="card col-5 mb-3 ms-3">
+                <div class="card-body">
+                    <h5 class="card-title">Jane does</h5>
+                    <p class="card-text"><%= i.Comment %></p>
+                    <p class="card-text"><%= i.rating %> stars</p>
+                    <form class="mb-3" action="/listings/<%= temp._id %>/review/<%= i._id %>?_method=Delete" method="post">
+                        <button class="btn btn-dark btn-sm">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        
+    </div>
+</body>

@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate') -%>
+
+    <body>
+        <h1>List Of All The places</h1>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+            <% for(let i of arr){ %>
+                <a href="/listings/<%= i._id %>" class="listings-link">
+                    <div class="card col listing-card"  >
+                        <img src="<%= i.img %>" class="card-img-top" alt="listings_image" style="height: 20rem;">
+                        <%= console.log(i.img) %>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b><%= i.title %></b>
+                                    <br>
+                                    &#8377;<%= i.price.toLocaleString("en-IN") %> /Night
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                </form>
+                
+            <% } %>
+
+        </div>
+
+    </body>
