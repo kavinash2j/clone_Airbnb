@@ -37,7 +37,7 @@ Route.post("/listings/login",saveRedirectUrl,passport.authenticate('local',{fail
     // let {username,passsword} = req.body;
     // res.send("welcome to wander lust your are loged in! ")
     req.flash("success","welcome to wander-lust")
-    console.log("by the hello " ,res.locals.redirectUrl);
+    console.log("by the hello " ,res.locals.redirectUrl); 
     let redirectUrl = res.locals.redirectUrl || "/listings";
     res.redirect(redirectUrl);
 }))

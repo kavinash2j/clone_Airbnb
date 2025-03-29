@@ -1,17 +1,32 @@
 <% layout('layouts/boilerplate') -%>
 <body>
-    <h1><%= temp.title %></h1>
-    <p>Description : <%= temp.desc %></p>
-    <p>Price : &#8377;<%= temp.price.toLocaleString("en-IN") %></p>
-    <p>Location : <%= temp.location %></p>
-    <p>Country : <%= temp.country %></p>
-    <a href="/listings/<%= temp._id %>/edit"><button>Edit</button></a>
-    <form action="/listings/<%= temp._id %>?_method=Delete" method="post">
-        <br>
-        <button>Delete</button>
-    </form>
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+            <b><h1><%= temp.title %></h1></b>
+        </div>
+            <div class="card col-6 offset-2 ">
+                <img src="<%= temp.img %>" class="card-img-top show-img" alt="listing img">
+                <div class="card-body">
+                    <p class="card-text"></p>
+                    <%= temp.desc %> <br>
+                    &#8377;<%= temp.price.toLocaleString("en-IN") %> <br>
+                    <%= temp.location %> <br>
+                    <%= temp.country %> <br>
+                </div>
+            </div>
+    </div>
     
-    <div class="col-8 offset-3 mb-3">
+
+    <div class="btns mt-3">
+        <a href="/listings/<%= temp._id %>/edit" class="btn btn-dark offset-2 Edit-btn"> Edit</a>
+    <form action="/listings/<%= temp._id %>?_method=Delete" method="post">
+        <button class="btn btn-dark offset-3">Delete</button>
+    </form>
+    </div>
+    
+    
+    <br>
+    <div class="col-8 offset-2 mb-3">
         <hr>
         <h4>Leave a Review</h4>
         <form action="/listings/<%= temp._id %>/review" method="post" novalidate class="needs-validation">

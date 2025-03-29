@@ -1,27 +1,40 @@
 <% layout('layouts/boilerplate') -%>
-<body>
-    <H1>Add Property</H1>
-    <form action="/listings" method="post"  novalidate class="needs-validation">
-        <label for="title">Title : </label>
-        <input name="title" placeholder="Enter the title" required>
-        <br><br>
-        <label for="desc">Description : </label>
-        <textarea type="text" name="desc" placeholder="Give the Description"  required></textarea>
-        <br><br>
-        <label for="img">Image : </label>
-        <input type="text" name="img" placeholder="Give the image url/link" >
-        <br><br>
-        <label for="price">Price : </label>
-        <input type="text" name="price" placeholder="Enter the price"  required>
-        <br><br>
-        <label for="location">location</label>
-        <input type="text" name="location" placeholder="Enter the location"  required>
-        <br><br>
-        <label for="country">Country</label>
-        <input type="text" name="country" placeholder="In which country" required>
-        <br><br>
-        <button>Submit</button>
+
+    <body>
         
-    </form>
-</body>
-<script src="/js/script.js" ></script>
+        <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <H1>Add Property</H1>
+        <form action="/listings" method="post" novalidate class="needs-validation">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title : </label>
+                <input name="title" class="form-control" placeholder="Enter the title" required>
+
+            </div>
+            <div class="mb-3"><label for="desc" class="form-label">Description : </label>
+                <textarea type="text" class="form-control" name="desc" placeholder="Give the Description" required></textarea>
+            </div>
+            <div class="mb-3"><label for="img" class="form-label">Image : </label>
+                <input type="text" class="form-control" name="img" placeholder="Give the image url/link">
+            </div>
+            <div class="row">
+                <div class="mb-3 col-4"><label for="price" class="form-label">Price : </label>
+                    <input type="text" class="form-control" name="price" placeholder="Enter the price" required>
+                </div>
+                <div class="mb-3 col-8"><label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" name="country" placeholder="In which country" required>
+                </div>
+            </div>
+            
+            <div class="mb-3"><label for="location" class="form-label">location</label>
+                <input type="text"class="form-control" name="location" placeholder="Enter the location" required>
+            </div>
+            
+            <button class="btn btn-dark add-btn">Add</button>
+            <br><br>
+        </form>
+    </body>
+</div>
+</div>
+    <script src="/js/script.js"></script>
