@@ -6,7 +6,7 @@
         <div class="col-8 offset-2">
             <br>
             <H1>Add Property</H1>
-        <form action="/listings" method="post" novalidate class="needs-validation">
+        <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title : </label>
                 <input name="title" class="form-control" placeholder="Enter the title" required>
@@ -15,9 +15,13 @@
             <div class="mb-3"><label for="desc" class="form-label">Description : </label>
                 <textarea type="text" class="form-control" name="desc" placeholder="Give the Description" required></textarea>
             </div>
-            <div class="mb-3"><label for="img" class="form-label">Image : </label>
-                <input type="text" class="form-control" name="img" placeholder="Give the image url/link">
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload-Image</label>
+                <input name="listing[image]" type="file" class="form-control" required/>
             </div>
+            <!-- <div class="mb-3"><label for="img" class="form-label">Image : </label>
+                <input type="text" class="form-control" name="img" placeholder="Give the image url/link">
+            </div> -->
             <div class="row">
                 <div class="mb-3 col-4"><label for="price" class="form-label">Price : </label>
                     <input type="text" class="form-control" name="price" placeholder="Enter the price" required>

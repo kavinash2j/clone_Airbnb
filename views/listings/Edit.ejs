@@ -4,7 +4,7 @@
         <div class="row mt-3">
         <div class="col-8 offset-2">
         <h1>Edit the listing</h1>
-        <form action="/listings/<%= temp._id %>/?_method=PUT" method="post">
+        <form action="/listings/<%= temp._id %>/?_method=PUT" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Title : </label>
                 <input class="form-control" name="title" value="<%= temp.title %>">
@@ -12,6 +12,15 @@
             <div class="mb-3">
                 <label class="form-label" for="desc">Description : </label>
                 <input class="form-control" name="desc" value="<%= temp.desc %>">
+            </div>
+            <label>Original Listing Image:</label>
+            <div class="card col-6 offset-0 ">
+                <img src="<%= originalImageUrl %>">
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="img">Image : </label>
+                <input class="form-control" name="img" type="file">
             </div>
             <div class="row">
                 <div class="mb-3 col-md-4">

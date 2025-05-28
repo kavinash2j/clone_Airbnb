@@ -1,25 +1,40 @@
+<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <form class="form-inline"  style="display: flex; gap: 10px;">
+          <input class="form-control mr-sm-2 search_input" type="search" placeholder="Search for live" aria-label="Search">
+          <button class="btn  my-2 my-sm-0 search_button" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Add listing</a>
+        <% if(!currUser){ %>
+        <a class="nav-link active" aria-current="page" href="/listings/Signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/listings/login"><b>Login</b></a>
+        <% } %>
+        <% if(currUser){ %>
+        <a class="nav-link" href="/listings/logout"><b>Log out</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+<style>
+  .search_input{
+    width: 500px;
+    text-align: center;
+    border-radius: 20px;
+  }
+  .search_button:active{
+    background-color: red;
+  }
 
-    <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i></i></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-              <a class="nav-link" href="/listings">All listings</a>
-              <a class="nav-link" href="/listings/new">Add listing</a>
-            </div>
-            <div class="navbar-nav ms-auto">
-              <% if(!currUser){ %>
-              <a class="nav-link active" aria-current="page" href="/listings/Signup">Sign up</a>
-              <a class="nav-link" href="/listings/login">Login</a>
-              <% } %>
-              <% if(currUser){ %>
-              <a class="nav-link" href="/listings/logout">Log out</a>
-              <% } %>
-            </div>
-          </div>
-        </div>
-      </nav>
+</style>

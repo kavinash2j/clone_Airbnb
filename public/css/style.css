@@ -77,3 +77,4 @@ card-img-top {
 .btns{
     display: flex;
 }
+#map { height: 100px; width: 100px; }

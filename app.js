@@ -1,7 +1,10 @@
+require("dotenv").config();
+const atlasurl = process.env.ATLAS_URL;
+
 const express = require("express");
 const app = express();
 exports.app = app;
-const monogoose = require("mongoose");
+const monogoose = require("mongoose"); 
 const path = require("path");
 const list = require("./modules/listing.js");
 const User = require("./modules/user.js");
@@ -10,10 +13,12 @@ const ejs_mate = require("ejs-mate");
 const { listingSchema,reviewSchema } = require("./schema.js");
 const { error } = require("console");
 const session = require("express-session")
+const mongostore = require("connect-mongo")
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStragy = require("passport-local");
 const expressError = require("./util/ExpressError.js");
+
 
 const userRoute = require("./Routes/user.js")
 const ListingRoute = require("./Routes/listings.js")
@@ -21,7 +26,7 @@ const ReviewRoute = require("./Routes/Review.js")
 
 
 async function main() {
-    await monogoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+    await monogoose.connect(atlasurl);
 }
 main().then((result) => {
     console.log("Database connected sucessfully")
@@ -29,7 +34,19 @@ main().then((result) => {
     console.log(err);
 })
 
+
+const store = mongostore.create({
+    mongoUrl:atlasurl,
+    crypto:{    
+        secret:"mysupersecretcode"
+    },
+    touchAfter: 24*3600,
+})
+store.on("err",()=>{
+    console.log("error in mongo session",err);
+})
 const sessionoption = {
+    store,
     secret : "mysupersecretcode",
     resave : false,
     saveUninitialized : true
